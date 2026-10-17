@@ -21,6 +21,8 @@ token_to_id = {
 def encode(text): 
     
     tokens = re.findall(r"\w+|[,.!?]", text) # Splits the sentence into individual tokens using regex
+    if token_ids not in vocabulary:
+        token = "UNK"
     # Loop through those characters
     # Look up each character in token_to_id
     # Collect the resulting IDs
@@ -28,7 +30,7 @@ def encode(text):
         token_to_id[token]
         for token in tokens
     ]
-    token_to_id.get("unknown", "default")
+    token_to_id.get("UNK", "default")
     return token_ids # Return the numerical sequence
 
 sentence = "Good morning, Sir!"
