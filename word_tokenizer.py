@@ -33,7 +33,10 @@ def encode(text):
         if token not in token_to_id:
             print(f"{token} is an unknown token")
     return token_ids # Return the numerical sequence
-
+def decode(token_ids):
+    tokens = []
+    for token in token_ids:
+        
 
 print(encode("Good morning, Sir!"))
 print(encode("Good evening, Sir!"))
