@@ -38,7 +38,7 @@ def decode(token_ids):
     for token in token_ids:
         token_id = vocabulary.get(
             token, 
-            vocabulary["[UNK]"]
+            vocabulary["[UK]"]
         )
     tokens.join(token_id)
 
