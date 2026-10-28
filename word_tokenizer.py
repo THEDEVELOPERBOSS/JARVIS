@@ -36,7 +36,11 @@ def encode(text):
 def decode(token_ids):
     tokens = []
     for token in token_ids:
-        
+        token_id = vocabulary.get(
+            token, 
+            vocabulary["[UNK]"]
+        )
+    tokens.join(token_id)
 
 print(encode("Good morning, Sir!"))
 print(encode("Good evening, Sir!"))
