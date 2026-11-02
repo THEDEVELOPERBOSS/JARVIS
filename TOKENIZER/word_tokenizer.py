@@ -46,10 +46,18 @@ def decode(token_ids):
             else:
                 decoded_text = decoded_text + " " + token_text
     return decoded_text
+# testing 
+test_sentences = [
+    "Good morning, Sir!",
+    "Good evening, Sir!",
+    "Good afternoon, Sir"
+]
+for sentence in test_sentences:
+    original = sentence
+    encoded_text = encode(original)
+    decoded_text = decode(encoded_text)
+    if original == decoded_text:
+        print(f"PASS: {sentence}")
+    else:
+        print(f"FAIL: {sentence}")
 
-print(encode("Good morning, Sir!"))
-print(encode("Good evening, Sir!"))
-print(encode("Good afternoon, Sir"))
-print(decode(encode("Good morning, Sir!")))
-print(decode(encode("Good afternoon, Sir")))
-print(decode(encode("Good afternoon, Sir")))
