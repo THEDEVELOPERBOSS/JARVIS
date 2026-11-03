@@ -1,4 +1,5 @@
 import re
+import json
 
 vocabulary = [
     "Good",
@@ -10,7 +11,8 @@ vocabulary = [
     "!",
     "[UNK]" # stands for Unknown. Used for anything not in vocab
 ]
-
+with open("tokenizer.json", "w") as file:
+    json.dump(vocabulary, file)
 # Assing a unique ID to every token
 token_to_id = {
     token: index
@@ -24,7 +26,7 @@ def encode(text):
     # Look up each character in token_to_id
     # Collect the resulting IDs
     token_ids = []
-    for token in tokens:
+    for token in tokens: # generate a dictionary mapping token to IDs
         token_id = token_to_id.get(
             token, 
             token_to_id["[UNK]"]
