@@ -6,7 +6,7 @@ with open("tokenizer.json", "r") as file:
 
 
 if "[UNK]" not in loaded_vocabulary:
-    raise ValueError("[UNk] is missing from the vocabulary") # value error actually stops the program if an error is detected
+    raise ValueError("[UNK] is missing from the vocabulary") # value error actually stops the program if an error is detected
 
 
 # Assing a unique ID to every token
