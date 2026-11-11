@@ -1,18 +1,6 @@
 import re
 import json
 
-vocabulary = [
-    "Good",
-    "morning",
-    "evening",
-    "Sir",
-    ",",
-    ".",
-    "!",
-    "[UNK]" # stands for Unknown. Used for anything not in vocab
-]
-with open("tokenizer.json", "w") as file:
-    json.dump(vocabulary, file)
 with open("tokenizer.json", "r") as file:
     loaded_vocabulary = json.load(file)
 
@@ -68,3 +56,5 @@ for sentence in test_sentences:
     else:
         print(f"FAIL: {sentence}")
 print(loaded_vocabulary)
+print(type(loaded_vocabulary))
+print(type(token_to_id))
