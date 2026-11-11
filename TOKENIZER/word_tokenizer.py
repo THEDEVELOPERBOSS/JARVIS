@@ -13,15 +13,15 @@ vocabulary = [
 ]
 with open("tokenizer.json", "w") as file:
     json.dump(vocabulary, file)
+with open("tokenizer.json", "r") as file:
+    loaded_vocabulary = json.load(file)
+
 # Assing a unique ID to every token
 token_to_id = {
     token: index
-    for index, token in enumerate(vocabulary) # enumerate gives both the pos. and value of each item
+    for index, token in enumerate(loaded_vocabulary) # enumerate gives both the pos. and value of each item
 }
-with open("tokenizer.json", "r") as file:
-    loaded_vocabulary = json.load
 
-    
 # conversts text into numerical IDs
 def encode(text): 
     
@@ -31,14 +31,15 @@ def encode(text):
     # Collect the resulting IDs
     token_ids = []
     for token in tokens: # generate a dictionary mapping token to IDs
-        token_id = token_id.get(
+        token_id = token_to_id.get( # searches for the word
             token, 
-            loaded_vocabulary["[UNK]"]
+            token_to_id["[UNK]"] # retrieves fallback ID
         )
         token_ids.append(token_id)
         if token not in token_to_id:
             print(f"{token} is an unknown token")
     return token_ids # Return the numerical sequence
+
 def decode(token_ids):
     decoded_text = ""
     for token in token_ids:
