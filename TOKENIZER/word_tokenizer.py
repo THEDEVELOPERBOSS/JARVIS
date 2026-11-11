@@ -18,6 +18,10 @@ token_to_id = {
     token: index
     for index, token in enumerate(vocabulary) # enumerate gives both the pos. and value of each item
 }
+with open("tokenizer.json", "r") as file:
+    loaded_vocabulary = json.load
+
+    
 # conversts text into numerical IDs
 def encode(text): 
     
@@ -27,9 +31,9 @@ def encode(text):
     # Collect the resulting IDs
     token_ids = []
     for token in tokens: # generate a dictionary mapping token to IDs
-        token_id = token_to_id.get(
+        token_id = token_id.get(
             token, 
-            token_to_id["[UNK]"]
+            loaded_vocabulary["[UNK]"]
         )
         token_ids.append(token_id)
         if token not in token_to_id:
@@ -38,7 +42,7 @@ def encode(text):
 def decode(token_ids):
     decoded_text = ""
     for token in token_ids:
-        token_text = vocabulary[token]
+        token_text = loaded_vocabulary[token]
         
         if token_text in [",", ".", "!", "?"]:
             decoded_text = decoded_text + token_text
@@ -62,4 +66,4 @@ for sentence in test_sentences:
         print(f"PASS: {sentence}")
     else:
         print(f"FAIL: {sentence}")
-
+print(loaded_vocabulary)
