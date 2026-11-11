@@ -4,6 +4,11 @@ import json
 with open("tokenizer.json", "r") as file:
     loaded_vocabulary = json.load(file)
 
+
+if "[UNK]" not in loaded_vocabulary:
+    raise ValueError("[UNk] is missing from the vocabulary") # value error actually stops the program if an error is detected
+
+
 # Assing a unique ID to every token
 token_to_id = {
     token: index
