@@ -8,12 +8,8 @@ with open("tokenizer.json", "r") as file:
 if "[UNK]" not in loaded_vocabulary:
     raise ValueError("[UNK] is missing from the vocabulary") # value error actually stops the program if an error is detected
 
-exists = []
-for words in loaded_vocabulary:
-    if words not in exists:
-        exists.append(words)
-    else:
-        raise ValueError(f"Duplicate found{words}")
+if len(loaded_vocabulary) != len(set(loaded_vocabulary)):
+        raise ValueError("Error found. Duplicate words in vocabulary")
     
 # Assing a unique ID to every token
 token_to_id = {
