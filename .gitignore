@@ -1,0 +1,47 @@
+# ==========================================
+# Python
+# ==========================================
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# ==========================================
+# Testing and development tools
+# ==========================================
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ==========================================
+# Local configuration and secrets
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+# ==========================================
+# Operating system files
+# ==========================================
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# Logs
+# ==========================================
+
+*.log
