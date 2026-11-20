@@ -1,16 +1,13 @@
 import cv2
 
-from COMPUTER.perception.screen_capture import get_monitors, capture_screen
+from ..perception.screen_capture import get_monitors, capture_screen
+from ..perception.image_analyzer import analyze_image
 
 if __name__ == "__main__":
-    frame = capture_screen()
+    frame = capture_screen() # takes a screenshot 
+    t_size, t_data_type, t_color = analyze_image(frame)
 
-    print("Image dimensions:", frame.shape)
-    print("Image data type:", frame.dtype)
-
-    cv2.imshow("JARVIS Screen Capture", frame)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    print(f"Size: {t_size}, Data Type: {t_data_type}, Color: {t_color}")
     
 def test_get_monitors():
     monitors = get_monitors()

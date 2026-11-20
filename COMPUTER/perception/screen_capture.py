@@ -19,14 +19,4 @@ def capture_screen(monitor_index=0):
         # converst it into BGR from BGRA
         frame = cv2.cvtColor(frame, cv2.COLOR_BGRA2BGR)
         return frame
-    
 
-if __name__ == "__main__":
-    frame = capture_screen()
-
-    print("Image dimensions:", frame.shape)
-    print("Image data type:", frame.dtype)
-
-    cv2.imshow("JARVIS Screen Capture", frame)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
