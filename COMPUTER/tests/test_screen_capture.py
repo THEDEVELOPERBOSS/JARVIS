@@ -5,6 +5,7 @@ from ..perception.image_analyzer import analyze_image
 
 if __name__ == "__main__":
     frame = capture_screen() # takes a screenshot 
+    analyze_image(frame)
     t_size, t_data_type, t_color = analyze_image(frame)
 
     print(f"Size: {t_size}, Data Type: {t_data_type}, Color: {t_color}")

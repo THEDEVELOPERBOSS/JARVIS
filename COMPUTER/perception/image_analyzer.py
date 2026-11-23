@@ -21,12 +21,14 @@ def analyze_image(frame):
     red_channel = np.mean(frame[:, :, 2])
     dominant_intensity = max(blue_channel, green_channel, red_channel)
     dominant_color = []
-    if blue_channel >= green_channel and blue_channel >= red_channel:
+    if blue_channel == dominant_intensity:
         dominant_color.append("Blue")
-    if red_channel >= green_channel and red_channel >= blue_channel:
+    if red_channel == dominant_intensity:
         dominant_color.append("Red")
-    if green_channel >= blue_channel and green_channel >= red_channel:
+    if green_channel == dominant_intensity:
         dominant_color.append("Green")
     
+    print(dominant_color)
     return size, data_type, color, brightness, lighting, blue_channel, green_channel, red_channel, dominant_intensity, dominant_color
     
+analyze_image(frame)
