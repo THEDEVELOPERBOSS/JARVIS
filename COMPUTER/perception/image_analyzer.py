@@ -31,4 +31,3 @@ def analyze_image(frame):
     print(dominant_color)
     return size, data_type, color, brightness, lighting, blue_channel, green_channel, red_channel, dominant_intensity, dominant_color
     
-analyze_image(frame)

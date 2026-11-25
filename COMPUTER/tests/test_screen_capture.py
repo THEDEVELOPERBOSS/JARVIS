@@ -1,14 +1,20 @@
-import cv2
-
 from ..perception.screen_capture import get_monitors, capture_screen
 from ..perception.image_analyzer import analyze_image
 
 if __name__ == "__main__":
     frame = capture_screen() # takes a screenshot 
-    analyze_image(frame)
-    t_size, t_data_type, t_color = analyze_image(frame)
+    size, data_type, color, brightness, lighting, blue_channel, green_channel, red_channel, dominant_intensity, dominant_color = analyze_image(frame)
 
-    print(f"Size: {t_size}, Data Type: {t_data_type}, Color: {t_color}")
+    print(f"""Size: {size}, 
+        Data Type: {data_type}, 
+        Color: {color}, 
+        Brightness: {brightness}, 
+        Lighting: {lighting}, 
+        Blue Channel: {blue_channel}, 
+        Green Channel: {green_channel},
+        Red Channel: {red_channel}, 
+        Dominant Intensity: {dominant_intensity},
+        Dominant Color: {dominant_color}""")
     
 def test_get_monitors():
     monitors = get_monitors()
